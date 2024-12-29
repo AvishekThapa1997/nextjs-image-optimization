@@ -18,7 +18,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
           quality={75}
           alt={product.title}
           className="h-auto mx-auto aspect-square max-w-full object-contain"
-          sizes="(min-width:1024px) calc(22vw - (3 * 0.5rem) - 1rem) , (min-width:768px) calc(30vw - (2 * 0.5rem) - 1rem) ,calc(50vw - 0.5rem - 1rem)"
+          sizes="(min-width: 1040px) 207px, (min-width: 780px) calc(6.25vw + 192px), (min-width: 600px) 256px, calc(46.07vw - 11px)"
         />
       </Link>
     </div>

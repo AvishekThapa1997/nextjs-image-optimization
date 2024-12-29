@@ -19,13 +19,13 @@ const ProductDetailPage = async ({
       <div className="grid p-6 md:p-4 gap-6 lg:grid-cols-[auto,1fr] md:gap-4 max-w-6xl mx-auto">
         <div className="border-2 rounded overflow-hidden">
           <NextImage
-            height={500}
-            width={500}
+            height={450}
+            width={450}
             src={result.images[0]}
             alt={result.title}
             quality={75}
             className="mx-auto max-w-full object-contain h-auto aspect-square bg-gray-100"
-            sizes="(min-width:1024px) calc(30vw - 1rem) , (min-width:768px) calc(35vw - 1rem) , (min-width:640px) calc(30vw - 1rem) , calc(40vw - 1rem)"
+            sizes="(min-width: 540px) 450px, calc(91.36vw - 25px)" // done from resp image lint
           />
         </div>
         <div className="h-full space-y-3">
