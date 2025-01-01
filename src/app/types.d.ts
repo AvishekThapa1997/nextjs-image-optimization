@@ -4,4 +4,5 @@ export interface ProductDto {
   description: string;
   tags: string[];
   imageUrl: string;
+  images?: string;
 }

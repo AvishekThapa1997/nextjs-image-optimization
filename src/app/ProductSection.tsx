@@ -1,22 +1,19 @@
-import React from "react";
-import { ProductDto } from "./types";
+import React, { Suspense } from "react";
+
 import Products from "./Products";
+import { getProducts } from "./get-products";
+import { ProductSkeleton } from "./ProductSkeleton";
 
-const ProductSection = async () => {
-  const response = await fetch("https://dummyjson.com/products?limit=50");
-  const { products } = await response.json();
-  const productDto = products.map(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (result: any) =>
-      ({
-        id: result.id,
-        title: result.title,
-        description: result.description,
-        tags: result.tags,
-        imageUrl: result.images[0],
-      } as ProductDto)
+const ProductSection = () => {
+  return (
+    <Suspense fallback={<ProductSkeleton />}>
+      <ProductContainer />
+    </Suspense>
   );
-
-  return <Products products={productDto} />;
 };
+const ProductContainer = async () => {
+  const initialProductResult = await getProducts();
+  return <Products initialProductResult={initialProductResult} />;
+};
+
 export default ProductSection;

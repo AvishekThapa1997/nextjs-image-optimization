@@ -1,25 +1,41 @@
+"use client";
 import React from "react";
-import { ProductDto } from "./types";
 
 import ProductItem from "./ProductItem";
-import ClientDimension from "./ClientDimension";
+import InfiniteScrolling from "./InfiniteScrolling";
+import { useGetProducts } from "./useProducts";
+import { GetProductResult } from "./get-products";
+import { ProductSkeleton } from "./ProductSkeleton";
 
 export interface ProductsProps {
-  products: ProductDto[];
+  initialProductResult?: GetProductResult;
 }
 
-const Products = ({ products }: ProductsProps) => {
+const Products = ({ initialProductResult }: ProductsProps) => {
+  const { data, fetchNextPage, isLoading, hasNextPage, isFetchingNextPage } =
+    useGetProducts(initialProductResult);
+  if (!isLoading && (!data || (data && data.pages.length === 0))) {
+    return <p>No products</p>;
+  }
+  const isDataAvailable =
+    data && Array.isArray(data.pages) && data.pages.length > 0;
   return (
-    <>
-      <div className="max-w-4xl space-y-4 p-4  mx-auto">
-        <ClientDimension />
-        <div className="gap-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {products.map((product) => (
-            <ProductItem product={product} key={product.id} />
-          ))}
-        </div>
-      </div>
-    </>
+    <InfiniteScrolling
+      onPageEnd={() => {
+        if (hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      }}
+    >
+      {isLoading && <ProductSkeleton />}
+      {isDataAvailable &&
+        data.pages.map(({ productIds, products }) => {
+          return productIds.map((productId) => (
+            <ProductItem product={products[productId]} key={productId} />
+          ));
+        })}
+      {isFetchingNextPage && <ProductSkeleton />}
+    </InfiniteScrolling>
   );
 };
 

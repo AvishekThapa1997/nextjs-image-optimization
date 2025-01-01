@@ -8,7 +8,7 @@ export interface ProductItemProps {
 }
 const ProductItem = ({ product }: ProductItemProps) => {
   return (
-    <div className="border-2 rounded overflow-hidden">
+    <div className="border rounded overflow-hidden">
       <Link href={`/products/${product.id}`}>
         <NextImage
           id="product-image"
@@ -18,7 +18,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
           quality={75}
           alt={product.title}
           className="h-auto mx-auto aspect-square max-w-full object-contain"
-          sizes="(min-width: 1040px) 207px, (min-width: 780px) calc(6.25vw + 192px), (min-width: 600px) 256px, calc(46.07vw - 11px)"
+          sizes="(min-width: 1040px) 206px, (min-width: 780px) 230px, 256px"
         />
       </Link>
     </div>

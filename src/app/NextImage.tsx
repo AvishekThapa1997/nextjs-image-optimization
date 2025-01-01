@@ -18,7 +18,7 @@ const NextImage = ({
   return (
     <div className="relative">
       <div
-        className={`animate-pulse bg-gray-200 absolute inset-0 ${
+        className={` bg-white absolute inset-0 ${
           isLoaded ? "hidden" : "block"
         }`}
       ></div>
