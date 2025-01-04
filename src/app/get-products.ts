@@ -24,12 +24,23 @@ export const getProducts = async (
       description: true,
       tags: true,
       title: true,
+      brand: true,
+      category: true,
+      price: true,
     },
   }
 ): Promise<GetProductResult> => {
   try {
     const dataToFetch = Object.entries(
-      select ?? { id: true, description: true, tags: true, title: true }
+      select ?? {
+        id: true,
+        description: true,
+        tags: true,
+        title: true,
+        brand: true,
+        category: true,
+        price: true,
+      }
     )
       .filter(([, value]) => value)
       .map(([key]) => key);
