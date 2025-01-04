@@ -1,7 +1,7 @@
 "use client";
 import { ProductDto } from "@/app/types";
 import { useRecentlyViewDb } from "@/app/useRecentlyViewDb";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface AddProductAsRecentlyViewedProps {
   productDto: ProductDto;
