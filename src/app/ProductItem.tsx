@@ -8,7 +8,7 @@ export interface ProductItemProps {
 }
 const ProductItem = ({ product }: ProductItemProps) => {
   return (
-    <div className="border max-w-fit relative shadow-sm rounded overflow-hidden">
+    <div className="border relative shadow-sm rounded overflow-hidden">
       <div className="flex h-full flex-col gap-3 pb-4 justify-between">
         <div className="border-b bg-gray-100">
           <Link href={`/products/${product.id}`}>
