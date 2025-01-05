@@ -12,11 +12,11 @@ const RecentlyView = () => {
   }
   if (isFetching) {
     return (
-      <div className="space-y-4 overflow-hidden overflow-x-auto">
+      <div className="flex gap-4 flex-col justify-between">
         <div className="animate-pulse rounded py-5 w-64  bg-clip-padding bg-gray-200"></div>
-        <div className="flex snap-x snap-mandatory scroll-smooth gap-4 flex-shrink-0 basis-3/4 md:basis-1/3 lg:md:basis-1/4">
+        <div className="flex snap-x snap-mandatory scroll-smooth gap-4">
           <ProductSkeleton
-            className="flex-shrink-0 snap-start basis-[calc(75%-16px)] sm:basis-[calc((100%-16px)/2)] md:basis-[calc((100%-2*16px)/3)] lg:md:basis-[calc((100%-3*16px)/4)]"
+            className="flex-shrink-0 snap-start basis-[calc(75%-16px)] sm:basis-[calc((100%-16px)/2)] md:basis-[calc((100%-2*16px)/3)] lg:basis-[calc((100%-3*16px)/4)]"
             length={4}
           />
         </div>
@@ -29,7 +29,7 @@ const RecentlyView = () => {
       <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth">
         {recentlyViewProducts.map((product) => (
           <div
-            className="[&>*]:h-full scroll-my-12 snap-start  flex-shrink-0 basis-[calc(75%-16px)] sm:basis-[calc((100%-16px)/2)] md:basis-[calc((100%-2*16px)/3)] lg:md:basis-[calc((100%-3*16px)/4)]"
+            className="[&>*]:h-full scroll-my-12 snap-start  flex-shrink-0 basis-[calc(75%-16px)] sm:basis-[calc((100%-16px)/2)] md:basis-[calc((100%-2*16px)/3)] lg:basis-[calc((100%-3*16px)/4)]"
             key={product.id}
           >
             <ProductItem product={product} key={product.id} />

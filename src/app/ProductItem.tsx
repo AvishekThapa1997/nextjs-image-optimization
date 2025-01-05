@@ -16,10 +16,10 @@ const ProductItem = ({ product }: ProductItemProps) => {
               id="product-image"
               src={product.imageUrl}
               width={256}
-              height={160}
+              height={144}
               quality={75}
               alt={product.title}
-              className="h-auto mx-auto max-w-full aspect-[16/10] object-contain"
+              className="h-auto mx-auto max-w-full aspect-video object-contain"
               sizes="(min-width: 1040px) 196px, (min-width: 780px) 200px, 230px"
             />
           </Link>

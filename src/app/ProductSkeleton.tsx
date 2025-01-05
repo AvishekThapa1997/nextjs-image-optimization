@@ -26,7 +26,7 @@ const ProductSkeleton = ({
                     <div className="animate-pulse rounded basis-full h-full bg-gray-200 grow"></div>
                     <div className="h-full rounded animate-pulse bg-gray-200 px-8 bg-clip-padding"></div>
                   </div>
-                  <div className="py-10 rounded bg-clip-padding animate-pulse bg-gray-200"></div>
+                  <div className="py-6 rounded bg-clip-padding animate-pulse bg-gray-200"></div>
                 </div>
                 <div className="py-5 animate-pulse rounded bg-gray-200"></div>
               </div>

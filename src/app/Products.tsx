@@ -20,22 +20,24 @@ const Products = ({ initialProductResult }: ProductsProps) => {
   const isDataAvailable =
     data && Array.isArray(data.pages) && data.pages.length > 0;
   return (
-    <InfiniteScrolling
-      onPageEnd={() => {
-        if (hasNextPage && !isFetchingNextPage) {
-          fetchNextPage();
-        }
-      }}
-    >
-      {isLoading && <ProductSkeleton />}
-      {isDataAvailable &&
-        data.pages.map(({ productIds, products }) => {
-          return productIds.map((productId) => (
-            <ProductItem product={products[productId]} key={productId} />
-          ));
-        })}
-      {isFetchingNextPage && <ProductSkeleton />}
-    </InfiniteScrolling>
+    <>
+      <InfiniteScrolling
+        onPageEnd={() => {
+          if (hasNextPage && !isFetchingNextPage) {
+            fetchNextPage();
+          }
+        }}
+      >
+        {isLoading && <ProductSkeleton />}
+        {isDataAvailable &&
+          data.pages.map(({ productIds, products }) => {
+            return productIds.map((productId) => (
+              <ProductItem product={products[productId]} key={productId} />
+            ));
+          })}
+        {isFetchingNextPage && <ProductSkeleton />}
+      </InfiniteScrolling>
+    </>
   );
 };
 
