@@ -1,5 +1,5 @@
 const DB_NAME = "ecomm";
-const VERSION = 7;
+const VERSION = 1;
 
 abstract class BaseIndexDb {
   private static _db: IDBDatabase | null = null;
@@ -30,14 +30,14 @@ abstract class BaseIndexDb {
         let recentlyViewObjectStore: IDBObjectStore | null | undefined;
         if (db.objectStoreNames.contains("recentlyView")) {
           recentlyViewObjectStore = dbTransaction?.objectStore("recentlyView");
-          recentlyViewObjectStore?.createIndex("createdAt", "createdAt", {
-            unique: true,
-          });
         } else {
           recentlyViewObjectStore = db.createObjectStore("recentlyView", {
             keyPath: "id",
           });
         }
+        recentlyViewObjectStore?.createIndex("createdAt", "createdAt", {
+          unique: true,
+        });
       });
     });
   }
