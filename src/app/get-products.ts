@@ -45,9 +45,9 @@ export const getProducts = async (
       .filter(([, value]) => value)
       .map(([key]) => key);
     const response = await fetch(
-      `/products?limit=${limit}&skip=${page * 10}&select=${dataToFetch.join(
-        ","
-      )},images`
+      `https://dummyjson.com/products?limit=${limit}&skip=${
+        page * 10
+      }&select=${dataToFetch.join(",")},images`
     );
 
     if (response.ok) {

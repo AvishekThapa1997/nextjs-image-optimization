@@ -16,14 +16,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/products",
-        destination: "https://dummyjson.com/products",
-      },
-    ];
-  },
 };
 
 const withBundleAnalyzer = bundleAnalyzer({
