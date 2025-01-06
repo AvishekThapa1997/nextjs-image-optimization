@@ -28,11 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
+        {/* <link
           rel="preconnect"
           href={process.env.NEXT_PUBLIC_IMAGEKIT_BASE_URL}
           crossOrigin=""
-        />
+        /> */}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ReactQueryClientProvider>
