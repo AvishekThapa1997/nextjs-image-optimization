@@ -15,6 +15,11 @@ const ProductGrid = () => {
 
 const ProductSection = async () => {
   const res = await getProducts();
+  await new Promise((res) => {
+    setTimeout(() => {
+      res("");
+    }, 500);
+  });
   return <Products initialProductResult={res} />;
 };
 export { ProductGrid };
