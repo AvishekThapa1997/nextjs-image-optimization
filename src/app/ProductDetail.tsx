@@ -15,8 +15,6 @@ const ProductDetail = ({ productDto }: ProductDetailProps) => {
           src={productDto.imageUrl}
           alt={productDto.title}
           quality={75}
-          fetchPriority="high"
-          loading="eager"
           priority={true}
           className="mx-auto max-w-full object-contain h-auto aspect-square "
           sizes="(min-width: 540px) 400px, 50vw" // done from resp image lint
