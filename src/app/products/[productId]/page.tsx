@@ -1,8 +1,9 @@
 import React from "react";
 import { ProductDto } from "@/app/types";
 import { AddProductAsRecentlyViewed } from "../../AddProductAsRecentlyViewed";
-import { RecentlyView } from "@/app/RecentlyView";
+
 import ProductDetail from "@/app/ProductDetail";
+import { RecentlyViewSection } from "@/app/RecentlyViewSection";
 
 interface ProductDetailPageParams {
   params: {
@@ -30,7 +31,8 @@ const ProductDetailPage = async ({
     <>
       <div className="p-6 space-y-6 max-w-6xl mx-auto">
         <ProductDetail productDto={productDto} />
-        <RecentlyView />
+        <RecentlyViewSection />
+        <h1 className="text-4xl">Adding for testing</h1>
       </div>
       <AddProductAsRecentlyViewed productDto={productDto} />
     </>
