@@ -32,7 +32,6 @@ const ProductDetailPage = async ({
       <div className="p-6 space-y-6 max-w-6xl mx-auto">
         <ProductDetail productDto={productDto} />
         <RecentlyViewSection />
-        <h1 className="text-4xl">Adding for testing</h1>
       </div>
       <AddProductAsRecentlyViewed productDto={productDto} />
     </>
